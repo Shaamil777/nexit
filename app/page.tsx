@@ -10,6 +10,7 @@ import AppShowCase from "@/components/home/AppShowCase";
 import FAQ from "@/components/home/FAQ";
 import Products from "@/components/home/Products";
 import Insight from "@/components/home/Insight";
+import Testimonials from "@/components/home/Testimonials";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <FAQ />
       <AppShowCase />
       <Insight />
+      <Testimonials />
     </div>
   );
 }
