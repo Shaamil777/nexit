@@ -9,6 +9,7 @@ A modern, highly aesthetic, and fully responsive web application built with Next
 - **Beautiful Animations**: Complex micro-interactions, entrance effects, and smooth page load animations powered by `framer-motion`.
 - **Modern UI Design**: Glassmorphism, tailored teal gradients, and a sleek dark aesthetic built with Tailwind CSS.
 - **Fully Responsive**: Optimized for desktop, tablet, and mobile devices featuring a custom animated mobile navigation drawer.
+- **SEO Optimized**: Fully configured with Next.js Metadata, OpenGraph tags, semantic HTML tags, and dynamically generated `sitemap.xml` and `robots.txt` for top-tier search engine indexing.
 
 ## 🛠️ Tech Stack
 
