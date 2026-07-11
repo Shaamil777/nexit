@@ -10,7 +10,7 @@ export default function DesktopAppPreview() {
           tristique
         </h2>
       </div>
-      <div className="flex-grow relative w-full top-[15px] sm:top-[30px] lg:top-[50] min-h-[220px] z-50 scale-[1.15] sm:scale-[1.4] lg:scale-[1.8] origin-bottom">
+      <div className="flex-grow relative w-full top-[15px] sm:top-[30px] lg:top-[28] min-h-[220px] z-50 scale-[1.15] sm:scale-[1.4] lg:scale-[1.2] origin-bottom">
         <Image
           src="/images/mac_preview.png"
           alt="Desktop App Preview"

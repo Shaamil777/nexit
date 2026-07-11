@@ -2,17 +2,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-const cardStyles = [
-  { image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "ml-0 md:ml-[-300px]", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.4, delayCard: 0, hideText: false },
-  { image: "https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.5, delayCard: 0.1, hideText: false },
-  { image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 20px) 0, 100% 100%, 0 100%)", delayText: 0.6, delayCard: 0.2, hideText: false },
-  { image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[320px]", h: "h-[210px] md:h-[440px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.7, delayCard: 0.3, hideText: false },
-  { image: "https://images.unsplash.com/photo-1555529733-0e670560f7e1?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.8, delayCard: 0.4, hideText: false },
-  { image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.9, delayCard: 0.5, hideText: false },
-  { image: "https://images.unsplash.com/photo-1562259929-b7e181d8d007?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 1.0, delayCard: 0.6, hideText: false },
-  { image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "", delayText: 0, delayCard: 0.7, hideText: true },
-  { image: "https://images.unsplash.com/photo-1576091160399-112ba3d25c1d?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 1.2, delayCard: 0.8, hideText: false },
-];
+import { cardStyles } from "@/data/industries";
+import { IndustryCard } from "@/types";
 export default function Industries() {
     const [cards, setCards] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);

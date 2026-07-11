@@ -2,10 +2,7 @@
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect } from "react";
-type Review = {
-  name: string;
-  body: string;
-};
+import { Review } from "@/types";
 export default function Testimonials() {
     const [reviews, setReviews] = useState<Review[]>([
         {

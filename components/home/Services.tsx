@@ -1,49 +1,9 @@
 "use client";
 import React, { useState } from 'react';
-const ServiceIcon = () => (
-  <svg
-    width="100%"
-    height="100%"
-    viewBox="0 0 100 100"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-24 h-24 mb-10 text-[#1f2937] group-hover:text-white transition-colors duration-500 relative z-10"
-  >
-    <rect x="12" y="22" width="76" height="52" rx="4" className="stroke-current fill-[#f3f4f6] group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" />
-    <rect x="18" y="28" width="64" height="40" rx="2" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2" />
-    <path d="M6 78 h88 v2 a4 4 0 0 1 -4 4 H10 a4 4 0 0 1 -4 -4 v-2 z" className="stroke-current fill-[#f3f4f6] group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" />
-    <path d="M42 78 v2 h16 v-2" className="stroke-current" strokeWidth="2" />
-    <path d="M10 74 L90 74" className="stroke-current" strokeWidth="2.5" />
-    <path d="M22 44 h8" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <path d="M22 50 h5" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="24" cy="58" r="1.5" className="fill-current" />
-    <path d="M28 58 h3" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <path d="M78 44 h-8" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <path d="M78 50 h-5" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="76" cy="58" r="1.5" className="fill-current" />
-    <path d="M72 58 h-3" className="stroke-current" strokeWidth="2" strokeLinecap="round" />
-    <g transform="translate(50, 48)">
-      <rect x="-4.5" y="-22" width="9" height="44" rx="1.5" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" />
-      <rect x="-4.5" y="-22" width="9" height="44" rx="1.5" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" transform="rotate(45)" />
-      <rect x="-4.5" y="-22" width="9" height="44" rx="1.5" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" transform="rotate(90)" />
-      <rect x="-4.5" y="-22" width="9" height="44" rx="1.5" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" transform="rotate(135)" />
-      <circle cx="0" cy="0" r="14" className="stroke-current fill-white group-hover:fill-transparent transition-colors duration-500" strokeWidth="2.5" />
-      <path d="M-4 -6 L-10 0 L-4 6" className="stroke-[#14b8a6] group-hover:stroke-white transition-colors duration-500" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M4 -6 L10 0 L4 6" className="stroke-[#14b8a6] group-hover:stroke-white transition-colors duration-500" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M1 -9 L-1 9" className="stroke-[#14b8a6] group-hover:stroke-white transition-colors duration-500" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-    </g>
-  </svg>
-);
-const services = [
-  { id: 1, title: "ERP Software development" },
-  { id: 2, title: "Tax consultancy" },
-  { id: 3, title: "Tax consultancy" },
-  { id: 4, title: "Business consultancy" },
-  { id: 5, title: "Accounting work" },
-  { id: 6, title: "Tax consultancy" },
-  { id: 7, title: "Business consultancy" },
-  { id: 8, title: "Tax consultancy" },
-];
+import { ServiceIcon } from '../icons';
+import { services } from '@/data/services';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+
 export default function Services() {
   const [showAll, setShowAll] = useState(false);
   return (
@@ -60,15 +20,10 @@ export default function Services() {
         </svg>
       </div>
       <div className="max-w-[1400px] mx-auto w-full relative z-10">
-        <div className="mb-14">
-          <h2 className="text-[3.25rem] sm:text-5xl lg:text-[4rem] font-[300] text-[#1f2937] leading-[1.05] mb-4 tracking-tight">
-            We are the makers of <br />
-            solutions
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base max-w-xl font-light">
-            Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque
-          </p>
-        </div>
+        <SectionHeader 
+          title={<>We are the makers of <br />solutions</>}
+          description="Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque"
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <div 

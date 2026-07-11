@@ -1,18 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-type FaqItem = {
-  question: string;
-  answer: string;
-};
-const defaultFaqs: FaqItem[] = [
-  { question: "Loading...", answer: "Loading..." },
-  { question: "Loading...", answer: "Loading..." },
-  { question: "Loading...", answer: "Loading..." },
-  { question: "Loading...", answer: "Loading..." },
-  { question: "Loading...", answer: "Loading..." },
-  { question: "Loading...", answer: "Loading..." }
-];
+import { FaqItem } from "@/types";
+import { defaultFaqs } from "@/data/faqs";
+import { Button } from "@/components/ui/Button";
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [faqs, setFaqs] = useState<FaqItem[]>(defaultFaqs);
@@ -53,9 +45,9 @@ export default function FAQ() {
           </div>
           <div className="mt-12 bg-white/10 backdrop-blur-md shadow-xl rounded-2xl p-8 lg:p-10 max-w-sm">
             <h3 className="text-3xl md:text-4xl font-light mb-8 leading-snug">Still Have a<br/> question ?</h3>
-            <button className="bg-white text-[#0CA7A5] px-8 py-3.5 rounded-xl font-semibold shadow-[0_8px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.2)] hover:bg-gray-50 transition-all duration-300 transform active:scale-95">
+            <Button variant="secondary" className="px-8 py-3.5">
               Sent Email
-            </button>
+            </Button>
           </div>
         </div>
         <div className="flex-[1.2] flex flex-col gap-4">
