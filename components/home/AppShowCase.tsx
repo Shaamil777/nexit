@@ -5,7 +5,7 @@ export default function AppShowCase() {
     <section className="w-full bg-white py-8 md:py-12 px-4 font-sans">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 lg:gap-20">
         {/* Left Side - Mobile App */}
-        <div className="w-full lg:w-1/2 bg-[#f4f4f4] rounded-[32px] flex flex-col justify-between relative group border border-gray-100 shadow-sm min-h-[480px] lg:min-h-[620px]">
+        <div className="w-full lg:w-1/2 bg-[#f4f4f4] rounded-[32px] flex flex-col justify-between relative group border border-gray-100 shadow-sm min-h-[400px] sm:min-h-[480px] lg:min-h-[620px] overflow-hidden lg:overflow-visible">
           {/* Content area with text left and phone right */}
           <div className="flex flex-row items-start flex-grow relative">
             {/* Text on the left */}
@@ -18,7 +18,7 @@ export default function AppShowCase() {
             </div>
             
             {/* Phone image on the right */}
-            <div className="absolute right-[-260] -bottom-[1px] w-[55%] h-[90%] z-50 scale-[2.7] origin-bottom-right">
+            <div className="absolute right-[40px] sm:right-[10px] lg:right-[-260px] -bottom-[1px] w-[70%] sm:w-[60%] lg:w-[55%] h-[85%] lg:h-[90%] z-50 scale-[1.3] sm:scale-[1.6] lg:scale-[2.7] origin-bottom-right">
               <Image
                 src="/images/Phone_Preview.png"
                 alt="Mobile App Preview"
@@ -30,8 +30,8 @@ export default function AppShowCase() {
           </div>
           
           {/* Bottom Bar Left */}
-          <div className="w-full bg-white h-[80px] flex items-center justify-center gap-4 lg:gap-6 relative z-20 border-t border-gray-200">
-            <button className="hover:opacity-80 transition-opacity">
+          <div className="w-full bg-white h-[80px] flex items-center justify-center gap-4 lg:gap-6 relative z-20 border-t border-gray-200 rounded-b-[32px]">
+            <button className="hover:opacity-80 transition-opacity transform scale-75 sm:scale-100 origin-center">
               <svg width="130" height="44" viewBox="0 0 169 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M161.578 1.59196C164.466 1.59196 166.818 3.92595 166.818 6.7972V49.8417C166.818 52.7108 164.469 55.047 161.578 55.047H6.84233C3.95423 55.047 1.60253 52.713 1.60253 49.8417V6.7972C1.60253 3.92815 3.95201 1.59196 6.84233 1.59196H161.578ZM161.578 0H6.84233C3.06763 0 0 3.0474 0 6.7972V49.8417C0 53.5915 3.06763 56.6389 6.84233 56.6389H161.578C165.353 56.6389 168.421 53.5915 168.421 49.8417V6.7972C168.421 3.0474 165.353 0 161.578 0Z" fill="black"/>
                 <path d="M152.743 32.0307L150.232 38.3831H150.157L147.537 32.0307H145.167L149.093 40.9131L146.849 45.8519H149.152L155.206 32.0307H152.745H152.743ZM134.996 26.7594H132.801V41.4129H134.996V26.7594ZM126.741 26.7594H121.468V41.4129H123.678V35.8664H126.75C129.333 35.9545 131.498 33.9464 131.587 31.379C131.587 31.3591 131.587 31.3371 131.587 31.3173C131.533 28.7455 129.39 26.7044 126.801 26.7594C126.781 26.7594 126.759 26.7594 126.739 26.7594H126.741ZM126.801 33.8186H123.678V28.8292H126.81C128.198 28.8292 129.321 29.9455 129.321 31.3239C129.321 32.7023 128.198 33.8186 126.81 33.8186H126.801ZM140.404 31.7158C138.761 31.6234 137.221 32.5041 136.478 33.9618L138.438 34.7941C138.835 34.0741 139.624 33.6557 140.446 33.7306C141.605 33.6161 142.638 34.455 142.756 35.6066C142.756 35.611 142.756 35.6132 142.756 35.6176V35.7673C142.053 35.3908 141.268 35.1926 140.47 35.1926C138.369 35.1926 136.226 36.3398 136.226 38.5197C136.226 40.4815 137.941 41.7454 139.883 41.7454C141.009 41.8159 142.084 41.2676 142.678 40.3142H142.762V41.446H144.906V35.8069C144.906 33.2043 142.946 31.7577 140.419 31.7577L140.402 31.7158H140.404ZM140.145 39.7483C139.424 39.7483 138.42 39.3828 138.42 38.4998C138.42 37.3681 139.668 36.9365 140.756 36.9365C141.459 36.9189 142.153 37.0884 142.764 37.4275C142.598 38.742 141.479 39.7329 140.145 39.7483ZM60.7696 41.7278C56.4341 41.741 52.8944 38.2907 52.8257 33.986C52.8944 29.6813 56.4341 26.2288 60.7696 26.2442C62.7755 26.2112 64.7083 26.9818 66.1357 28.3822L64.6197 29.8707C63.5912 28.871 62.2081 28.3139 60.7696 28.325C57.6399 28.325 55.102 30.8461 55.102 33.9552C55.102 37.0642 57.6399 39.5854 60.7696 39.5854C62.248 39.6448 63.6843 39.0811 64.7216 38.0308C65.4021 37.302 65.8144 36.3618 65.8853 35.3688H60.7696V33.3144H67.9688C68.0464 33.7504 68.0841 34.193 68.0774 34.6355C68.1505 36.4763 67.4834 38.2708 66.2266 39.625C64.7903 41.065 62.8066 41.8313 60.7696 41.73V41.7278ZM79.2109 36.7383C79.3239 39.4643 77.1894 41.7652 74.4476 41.8775C71.7036 41.9898 69.3874 39.8694 69.2743 37.1457C69.2677 37.0114 69.2677 36.8749 69.2743 36.7405C69.1613 34.0146 71.2958 31.7137 74.0376 31.6014C76.7816 31.4891 79.0978 33.6095 79.2109 36.3332C79.2175 36.4675 79.2175 36.604 79.2109 36.7383ZM77.0343 36.7383C77.1805 35.2058 76.0501 33.8473 74.5075 33.7019C72.9648 33.5566 71.5972 34.6796 71.4509 36.2121C71.4332 36.3882 71.4332 36.5644 71.4509 36.7383C71.3046 38.2708 72.435 39.6294 73.9777 39.7747C75.5204 39.9201 76.888 38.7971 77.0343 37.2646C77.052 37.0884 77.052 36.9123 77.0343 36.7383ZM90.3443 36.7383C90.3443 39.4621 88.1212 41.6705 85.3794 41.6705C82.6376 41.6705 80.4144 39.4621 80.4144 36.7383C80.4144 34.0146 82.6376 31.8061 85.3794 31.8061C88.1212 31.8061 90.3443 34.0146 90.3443 36.7383ZM88.1766 36.7383C88.3229 35.2058 87.1925 33.8473 85.6498 33.7019C84.1071 33.5566 82.7395 34.6796 82.5932 36.2121C82.5755 36.3882 82.5755 36.5644 82.5932 36.7383C82.447 38.2708 83.5774 39.6294 85.12 39.7747C86.6627 39.9201 88.0303 38.7971 88.1766 37.2646C88.1943 37.0884 88.1943 36.9123 88.1766 36.7383ZM101.21 32.0571V41.0144C101.21 44.6893 99.0086 46.2042 96.4131 46.2042C94.467 46.2196 92.7049 45.0724 91.9424 43.2933L93.842 42.461C94.2454 43.4981 95.2339 44.1961 96.3533 44.2313C98.0267 44.2313 99.0485 43.2075 99.0485 41.305V40.5894H98.9643C98.2993 41.3248 97.3485 41.741 96.3533 41.7278C93.5782 41.7278 91.3307 39.4929 91.3307 36.7383C91.3307 33.9838 93.5804 31.7489 96.3533 31.7489C97.3551 31.7269 98.3171 32.132 98.9975 32.863H99.0818V32.0307H101.207V32.0549L101.21 32.0571ZM99.2591 36.7626C99.3854 35.2102 98.2218 33.8495 96.6591 33.724C96.6303 33.7218 96.5993 33.7196 96.5705 33.7174C94.9635 33.7702 93.7023 35.1089 93.7555 36.7053C93.7555 36.7229 93.7555 36.7427 93.7577 36.7604C93.6824 38.3435 94.9147 39.6867 96.5084 39.7593C96.5284 39.7593 96.5505 39.7593 96.5705 39.7615C98.1176 39.7021 99.3234 38.4074 99.2635 36.8704C99.2635 36.833 99.2591 36.7978 99.2569 36.7604L99.2591 36.7626ZM105.086 26.7748V41.4195H102.876V26.7748H105.086ZM113.793 38.3853L115.517 39.5171C114.582 40.9043 113.01 41.7344 111.332 41.73C108.646 41.7674 106.438 39.636 106.401 36.9673C106.401 36.8925 106.401 36.8154 106.401 36.7405C106.181 34.215 108.063 31.9889 110.605 31.7709C112.749 31.5859 114.737 32.8961 115.4 34.9284L115.626 35.5031L108.93 38.2554C109.357 39.2088 110.324 39.8078 111.374 39.7681C112.367 39.7527 113.281 39.2309 113.793 38.3875V38.3853ZM108.511 36.5886L113.015 34.7434C112.658 34.0498 111.922 33.6359 111.14 33.6865C109.619 33.7526 108.442 35.0297 108.509 36.5402C108.509 36.5556 108.509 36.5732 108.511 36.5886Z" fill="black"/>
@@ -49,7 +49,7 @@ export default function AppShowCase() {
               </svg>
             </button>
             
-            <button className="hover:opacity-80 transition-opacity">
+            <button className="hover:opacity-80 transition-opacity transform scale-75 sm:scale-100 origin-center">
               <svg width="130" height="44" viewBox="0 0 169 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M161.578 1.59196C164.466 1.59196 166.818 3.92595 166.818 6.7972V49.8417C166.818 52.7108 164.469 55.047 161.578 55.047H6.84233C3.95423 55.047 1.60252 52.713 1.60252 49.8417V6.7972C1.60252 3.92815 3.95201 1.59196 6.84233 1.59196H161.578ZM161.578 0H6.84233C3.06763 0 0 3.0474 0 6.7972V49.8417C0 53.5915 3.06763 56.6389 6.84233 56.6389H161.578C165.353 56.6389 168.421 53.5915 168.421 49.8417V6.7972C168.421 3.0474 165.353 0 161.578 0Z" fill="black"/>
                 <path d="M27.7969 17.775C27.5686 15.9497 28.4796 14.0142 29.4947 12.8252C30.6473 11.4776 32.6532 10.445 34.2491 10.3789C34.4553 12.2813 33.7017 14.1507 32.5956 15.5225C31.4453 16.87 29.5967 17.9115 27.7969 17.7772V17.775Z" fill="black"/>
@@ -81,7 +81,7 @@ export default function AppShowCase() {
         </div>
 
         {/* Right Side - Desktop App */}
-        <div className="w-full lg:w-1/2 bg-[#009C95] rounded-[32px] flex flex-col justify-between relative group shadow-sm min-h-[480px] lg:min-h-[620px]">
+        <div className="w-full lg:w-1/2 bg-[#009C95] rounded-[32px] flex flex-col justify-between relative group shadow-sm min-h-[400px] sm:min-h-[480px] lg:min-h-[620px] overflow-hidden lg:overflow-visible">
           {/* Text on the right */}
           <div className="px-8 lg:px-12 pt-8 lg:pt-10 z-10 w-full text-right">
             <h2 className="text-xl lg:text-2xl xl:text-3xl font-light text-white leading-[1.2] mb-2 italic">
@@ -92,7 +92,7 @@ export default function AppShowCase() {
           </div>
           
           {/* Mac preview image */}
-          <div className="flex-grow relative w-full top-[50] min-h-[220px] z-50 scale-[1.8] origin-bottom">
+          <div className="flex-grow relative w-full top-[15px] sm:top-[30px] lg:top-[50] min-h-[220px] z-50 scale-[1.15] sm:scale-[1.4] lg:scale-[1.8] origin-bottom">
             <Image
               src="/images/mac_preview.png"
               alt="Desktop App Preview"
@@ -102,8 +102,8 @@ export default function AppShowCase() {
             />
           </div>
           {/* Bottom Bar Right */}
-          <div className="w-full bg-[#00958f] h-[80px] flex items-center justify-center gap-4 relative z-20">
-            <button className="flex items-center justify-center bg-black text-white px-5 rounded-[8px] hover:bg-gray-900 transition-colors gap-3 h-[50px] min-w-[150px] overflow-hidden">
+          <div className="w-full bg-[#00958f] h-[80px] flex items-center justify-center gap-4 relative z-20 rounded-b-[32px]">
+            <button className="flex items-center justify-center bg-black text-white px-5 rounded-[8px] hover:bg-gray-900 transition-colors gap-3 h-[50px] min-w-[150px] overflow-hidden transform scale-90 sm:scale-100 origin-center">
               <svg viewBox="0 0 23 23" width="20" height="20" className="flex-shrink-0">
                 <path fill="#f35325" d="M1 1h10v10H1z"/>
                 <path fill="#81bc06" d="M12 1h10v10H12z"/>
