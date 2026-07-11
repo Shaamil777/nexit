@@ -16,10 +16,10 @@ export default function Home() {
       <Clients />
       <Statistics />
       <About />
+      <Industries />
+      <WhyChooseUs />
       <Services />
       <Experience />
-      <WhyChooseUs />
-      <Industries />
       <AppShowCase />
       <FAQ />
     </div>
