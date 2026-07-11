@@ -15,22 +15,22 @@ export default function About() {
     const coverVariants1st3rd = {
         open: {
             scaleX: 0,
-            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] }
+            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] as const }
         },
         closed: {
             scaleX: 1,
-            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] }
+            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] as const }
         }
     };
 
     const coverVariants2nd = {
         open: {
             scaleX: 0,
-            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1], delay: 1.1 }
+            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] as const, delay: 1.1 }
         },
         closed: {
             scaleX: 1,
-            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] }
+            transition: { duration: 1.0, ease: [0.65, 0, 0.35, 1] as const }
         }
     };
 
