@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LoadingScreen from "@/components/layout/LoadingScreen";
+import SmoothScrolling from "@/components/layout/SmoothScrolling";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -27,10 +28,12 @@ export default function RootLayout({
       className={`${poppins.variable} h-full antialiased`}
     >
       <body className="bg-white text-black min-h-full flex flex-col">
-        <LoadingScreen />
-        <Navbar />
-        <main className="flex-1 flex flex-col">{children}</main>
-        <Footer />
+        <SmoothScrolling>
+          <LoadingScreen />
+          <Navbar />
+          <main className="flex-1 flex flex-col">{children}</main>
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
