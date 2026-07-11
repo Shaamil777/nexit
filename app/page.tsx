@@ -14,12 +14,12 @@ export default function Home() {
     <div className="flex flex-col w-full flex-1">
       <Hero />
       <Clients />
+      <Statistics />
       <About />
       <Services />
       <Experience />
       <WhyChooseUs />
       <Industries />
-      <Statistics />
       <AppShowCase />
       <FAQ />
     </div>
