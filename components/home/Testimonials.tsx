@@ -1,7 +1,48 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Play } from "lucide-react";
+import { useState, useEffect } from "react";
+
+type Review = {
+  name: string;
+  body: string;
+};
 
 export default function Testimonials() {
+    const [reviews, setReviews] = useState<Review[]>([
+        {
+            name: "EVERSHINE AGENCIES",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac pretium nisl. Mauris augue massa, ultricies non ligula suspendisse et varius Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodales purus erat sit amet eros. sem. Maecenas vel magna sodales, scelerisque eros ut."
+        }
+    ]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/comments?_limit=5")
+            .then((res) => res.json())
+            .then((data) => {
+                setReviews(
+                    data.map((item: any) => ({
+                        // Use the email prefix as a fake agency name
+                        name: item.email.split('@')[0].toUpperCase() + " AGENCIES",
+                        body: item.body,
+                    }))
+                );
+            })
+            .catch((err) => console.error("Error fetching testimonials:", err));
+    }, []);
+
+    const handleNext = () => {
+        setCurrentIndex((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
+    };
+
+    const handlePrev = () => {
+        setCurrentIndex((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
+    };
+
+    const currentReview = reviews[currentIndex];
+
     return (
         <section className="w-full bg-white py-24 px-4 sm:px-8 lg:px-16 xl:px-24">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 lg:gap-24">
@@ -70,23 +111,29 @@ export default function Testimonials() {
                         what our<br />customers<br />saying
                     </h2>
 
-                    <div className="bg-[#f5f5f5] rounded-[1.5rem] p-8 lg:p-10 relative">
+                    <div className="bg-[#f5f5f5] rounded-[1.5rem] p-8 lg:p-10 relative h-[380px] md:h-auto flex flex-col">
                         <div className="flex items-center gap-5 mb-6">
                             <div className="w-14 h-14 bg-black rounded-xl flex-shrink-0"></div>
-                            <h4 className="text-gray-700 font-medium tracking-wide text-sm">
-                                EVERSHINE AGENCIES
+                            <h4 className="text-gray-700 font-medium tracking-wide text-sm truncate">
+                                {currentReview.name}
                             </h4>
                         </div>
 
-                        <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-md">
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac pretium nisl. Mauris augue massa, ultricies non ligula suspendisse et varius Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodales purus erat sit amet eros. sem. Maecenas vel magna sodales, scelerisque eros ut."
+                        <p className="text-gray-500 text-sm leading-relaxed mb-10 max-w-md line-clamp-6 capitalize">
+                            "{currentReview.body}"
                         </p>
 
                         <div className="absolute bottom-8 right-8 flex gap-5 text-gray-300">
-                            <button className="hover:text-[#0CA7A5] transition-colors duration-300">
+                            <button 
+                                onClick={handlePrev}
+                                className="hover:text-[#0CA7A5] transition-colors duration-300"
+                            >
                                 <ArrowLeft size={22} />
                             </button>
-                            <button className="text-[#0CA7A5] hover:text-[#098d8b] transition-colors duration-300">
+                            <button 
+                                onClick={handleNext}
+                                className="text-[#0CA7A5] hover:text-[#098d8b] transition-colors duration-300"
+                            >
                                 <ArrowRight size={22} />
                             </button>
                         </div>

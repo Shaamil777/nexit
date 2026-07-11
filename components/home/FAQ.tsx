@@ -1,37 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const faqs = [
-  {
-    question: "Lorem ipsum dolor sit amet, consectetur ad piscing elit?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  },
-  {
-    question: "Vivamus luctus eros aliquet convallis ultricies?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  },
-  {
-    question: "scelerisque eros ut finibus velit?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  },
-  {
-    question: "Vivamus luctus eros aliquet convallis ultricies?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  },
-  {
-    question: "ulla tristique efficitur nisi, at scelerisque nisl iaculis id?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  },
-  {
-    question: "Vivamus luctus eros aliquet convallis ultricies?",
-    answer: "Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal",
-  }
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+const defaultFaqs: FaqItem[] = [
+  { question: "Loading...", answer: "Loading..." },
+  { question: "Loading...", answer: "Loading..." },
+  { question: "Loading...", answer: "Loading..." },
+  { question: "Loading...", answer: "Loading..." },
+  { question: "Loading...", answer: "Loading..." },
+  { question: "Loading...", answer: "Loading..." }
 ];
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [faqs, setFaqs] = useState<FaqItem[]>(defaultFaqs);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts?_limit=6")
+      .then((res) => res.json())
+      .then((data) => {
+        setFaqs(
+          data.map((item: any) => ({
+            question: item.title,
+            answer: item.body,
+          }))
+        );
+      })
+      .catch((err) => console.error("Error fetching FAQs:", err));
+  }, []);
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -83,7 +85,7 @@ export default function FAQ() {
                 onClick={() => toggleFaq(index)}
               >
                 <div className="p-6 flex justify-between items-center group">
-                  <h4 className={`text-sm md:text-base font-medium transition-colors ${isOpen ? "text-white" : "text-white/90 group-hover:text-white"}`}>
+                  <h4 className={`text-sm md:text-base font-medium transition-colors capitalize ${isOpen ? "text-white" : "text-white/90 group-hover:text-white"}`}>
                     {faq.question}
                   </h4>
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4 transition-all duration-300 ${isOpen ? "bg-white/20" : "bg-white/10 group-hover:bg-white/20"}`}>
@@ -102,7 +104,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="h-[1px] w-full bg-white/10 mb-5"></div>
-                  <p className="text-white/80 text-sm leading-relaxed">
+                  <p className="text-white/80 text-sm leading-relaxed capitalize">
                     {faq.answer}
                   </p>
                 </div>
