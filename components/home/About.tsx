@@ -44,7 +44,7 @@ export default function About() {
                         <h2 className="text-4xl sm:text-5xl font-light text-gray-800 mb-2">Our Story</h2>
                         <p className="text-lg sm:text-xl text-gray-500 mb-8 font-normal">All in One Web Solution for Your Business</p>
 
-                        <div className="relative space-y-2 z-10 text-gray-500 text-sm w-[165%] leading-relaxed">
+                        <div className="relative space-y-2 z-10 text-gray-500 text-sm w-full lg:w-[165%] leading-relaxed">
                             <p>
                                 Aenean non accumsan ante. Duis nisl felis, condimentum id varius sit amet, placerat
                                 vitae neque. Maecenas scelerisque, massa in pulvinar feugiat, enim purus tincidunt

@@ -57,19 +57,21 @@ export default function Hero() {
             y: laptopY,
             x: "-50%" 
           }}
-          className="absolute z-10 w-full max-w-5xl px-4 left-1/2 top-1/2 mt-12 flex flex-col items-center"
+          className="absolute z-10 w-full max-w-5xl px-4 left-1/2 top-[60%] sm:top-1/2 mt-20 sm:mt-12 flex flex-col items-center"
         >
-          <Image 
-            src="/images/laptop.png" 
-            alt="Laptop interface" 
-            width={1200} 
-            height={800} 
-            className="w-full h-auto drop-shadow-2xl"
-            priority
-          />
-          <p className="mt-8 max-w-4xl text-center text-2xl sm:text-3xl font-thin text-gray-400 opacity-90 leading-snug">
-            <span className="text-gray-900 font-extralight">Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit. Vivamus<br />
-            luctus eros aliquet convallis ultricies. Mauris <span className="text-gray-900 font-extralight">augue</span> massa, ultricies<br />
+          <div className="w-[80%] sm:w-full flex flex-col items-center">
+            <Image 
+              src="/images/laptop.png" 
+              alt="Laptop interface" 
+              width={1200} 
+              height={800} 
+              className="w-full h-auto drop-shadow-2xl"
+              priority
+            />
+          </div>
+          <p className="mt-6 sm:mt-8 max-w-4xl text-center text-sm sm:text-3xl font-thin text-gray-400 opacity-90 leading-snug px-4 sm:px-0">
+            <span className="text-gray-900 font-extralight">Lorem ipsum</span> dolor sit amet, consectetur adipiscing elit. Vivamus<br className="hidden sm:block" />
+            luctus eros aliquet convallis ultricies. Mauris <span className="text-gray-900 font-extralight">augue</span> massa, ultricies<br className="hidden sm:block" />
             non ligula suspendisse
           </p>
         </motion.div>

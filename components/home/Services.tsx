@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 
 const ServiceIcon = () => (
   <svg
@@ -62,6 +63,8 @@ const services = [
 ];
 
 export default function Services() {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section className="w-full bg-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       
@@ -93,10 +96,10 @@ export default function Services() {
 
         {/* Grid Area */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div 
               key={service.id} 
-              className="group relative bg-[#f4f5f7] rounded-md p-8 sm:p-10 flex flex-col justify-start min-h-[340px] border border-gray-100 overflow-hidden cursor-pointer z-0"
+              className={`group relative bg-[#f4f5f7] rounded-md p-8 sm:p-10 flex-col justify-start min-h-[340px] border border-gray-100 overflow-hidden cursor-pointer z-0 ${!showAll && index >= 4 ? 'hidden sm:flex' : 'flex'}`}
             >
               {/* Dark grey background that fades in instantly on hover */}
               <div className="absolute inset-0 bg-[#4b4b4b] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-20" />
@@ -119,6 +122,18 @@ export default function Services() {
             </div>
           ))}
         </div>
+
+        {/* Show More Button (Mobile Only) */}
+        {!showAll && (
+          <div className="mt-8 flex justify-center sm:hidden">
+            <button 
+              onClick={() => setShowAll(true)}
+              className="bg-[#00A99D] hover:bg-[#008f85] text-white px-8 py-3 rounded text-base font-medium transition-colors shadow-sm"
+            >
+              Show More
+            </button>
+          </div>
+        )}
 
       </div>
     </section>
