@@ -8,6 +8,7 @@ import Industries from "@/components/home/Industries";
 import Statistics from "@/components/home/Statistics";
 import AppShowCase from "@/components/home/AppShowCase";
 import FAQ from "@/components/home/FAQ";
+import Products from "@/components/home/Products";
 
 export default function Home() {
   return (
@@ -20,8 +21,9 @@ export default function Home() {
       <WhyChooseUs />
       <Experience />
       <Services />
-      <AppShowCase />
+      <Products />
       <FAQ />
+      <AppShowCase />
     </div>
   );
 }
