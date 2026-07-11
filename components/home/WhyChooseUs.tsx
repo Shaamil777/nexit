@@ -1,11 +1,207 @@
-export default function WhyChooseUs() {
+"use client";
+
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useState, MouseEvent } from "react";
+
+const reasons = [
+  {
+    id: 1,
+    text: "We are proud to say that a majority share of Kerala's top 10 trading business leaders of each industry that we serve has choose Invaccs and has been travelling with us for years.",
+    col: "left",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
+  },
+  {
+    id: 2,
+    text: "Completely customizable industry specific ERP software tailor-made for your business needs.",
+    col: "right",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80"
+  },
+  {
+    id: 3,
+    text: "We don't just provide software, we also do the accounts & auditing.",
+    col: "left",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400&q=80"
+  },
+  {
+    id: 4,
+    text: "Over 95% retention rate due to our strong after-sales support.",
+    col: "right",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=400&q=80"
+  },
+  {
+    id: 5,
+    text: "Beginner-friendly UI/UX. Quick & Simple to learn no higher education or software course required to use the software efficiently.",
+    col: "left",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&q=80"
+  },
+  {
+    id: 6,
+    text: "Multiple personal training session for every employee in regional language.",
+    col: "right",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80"
+  },
+  {
+    id: 7,
+    text: "No hidden costs, Transparency is the key for our long run.",
+    col: "right",
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&q=80"
+  },
+];
+
+const ArrowIcon = ({ isRight }: { isRight?: boolean }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={`text-cyan-400 shrink-0 mt-0.5 transition-transform duration-300 relative z-10 ${
+      isRight ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'
+    }`}
+  >
+    <path d="M5 12h14" />
+    <path d="m12 5 7 7-7 7" />
+  </svg>
+);
+
+const FeatureCard = ({ reason, index }: { reason: typeof reasons[0]; index: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const isRight = reason.col === "right";
+
+  // Use a spring for smoother cursor following
+  const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
+  const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
+  };
+
   return (
-    <section className="w-full bg-gray-50 py-20 px-4">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Why Choose Us</h2>
-          <p className="mt-4 text-lg text-gray-500">This section is ready for you to build.</p>
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      className="w-full"
+    >
+      <motion.div
+        variants={{
+          hidden: { x: isRight ? "100vw" : "-100vw" },
+          visible: { 
+            x: 0,
+            transition: { type: "spring", stiffness: 50, damping: 14, delay: index * 0.15 }
+          }
+        }}
+        whileHover={{ y: -4 }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseMove={handleMouseMove}
+        className={`group relative bg-[#111111]/80 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-8 flex items-start gap-5 hover:border-white/10 hover:bg-[#151515] transition-colors duration-300 ${
+          isRight ? "flex-row-reverse text-right" : "flex-row text-left"
+        }`}
+      >
+        <ArrowIcon isRight={isRight} />
+        <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light relative z-10 overflow-hidden">
+          {reason.text}
+        </p>
+
+        {/* Cursor Following Polaroid */}
+        <motion.div
+          style={{
+            x: springX,
+            y: springY,
+            translateX: "-50%",
+            translateY: "-50%",
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            scale: isHovered ? 1 : 0.8,
+            rotate: isHovered ? (isRight ? -6 : 6) : 0,
+          }}
+          transition={{ duration: 0.2 }}
+          className="absolute top-0 left-0 w-32 md:w-40 bg-white p-2 pb-10 shadow-2xl pointer-events-none z-50 origin-center hidden sm:block"
+        >
+          <img 
+            src={reason.image} 
+            alt="Preview" 
+            className="w-full h-24 md:h-32 object-cover bg-gray-100"
+          />
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+export default function WhyChooseUs() {
+  const leftReasons = reasons.filter((r) => r.col === "left");
+  const rightReasons = reasons.filter((r) => r.col === "right");
+
+  return (
+    <section className="w-full bg-[#0A0A0A] pt-24 md:pt-32 pb-32 md:pb-48 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+      
+      {/* Background Decorative Elements */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        {/* Large Faded Text */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute top-10 right-4 md:right-10 text-white/[0.02] font-black text-[6rem] sm:text-[8rem] md:text-[12rem] lg:text-[16rem] tracking-tighter leading-none select-none"
+        >
+          INVACCS
+        </motion.div>
+
+        {/* Glowing Orbs */}
+        <div className="absolute top-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-cyan-900/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/4"></div>
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] translate-y-1/3 translate-x-1/4"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-20 md:mb-28"
+        >
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-white">
+            Why big players choose{" "}
+            <span className="font-normal bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+              Invaccs ?
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-5xl mx-auto">
+          {/* Left Column */}
+          <div className="flex flex-col gap-6 md:gap-8 md:mt-16 lg:mt-24">
+            {leftReasons.map((reason, index) => (
+              <FeatureCard key={reason.id} reason={reason} index={index} />
+            ))}
+          </div>
+
+          {/* Right Column */}
+          <div className="flex flex-col gap-6 md:gap-8">
+            {rightReasons.map((reason, index) => (
+              <FeatureCard key={reason.id} reason={reason} index={index} />
+            ))}
+          </div>
         </div>
+      </div>
+      
+      {/* Wave Transition */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+        <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[80px] md:h-[160px] block">
+          <path fill="#ffffff" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,133.3C840,128,960,160,1080,170.7C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
       </div>
     </section>
   );

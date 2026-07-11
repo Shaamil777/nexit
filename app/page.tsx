@@ -18,8 +18,8 @@ export default function Home() {
       <About />
       <Industries />
       <WhyChooseUs />
-      <Services />
       <Experience />
+      <Services />
       <AppShowCase />
       <FAQ />
     </div>
