@@ -8,24 +8,17 @@ export default function Statistics() {
       <span className="font-bold text-xs tracking-tight text-gray-900">logo<span className="font-light">ipsum</span></span>
     </div>
   );
-
   return (
     <section className="w-full bg-white pb-24 pt-4 z-20 relative">
       <div className="max-w-[100rem] mx-auto px-4 md:px-8">
-        
         <div className="flex flex-col md:flex-row items-stretch gap-6 w-full h-auto md:h-[180px]">
-          
-          {/* Rectangle 1 */}
           <div className="flex-1 bg-[#F8F8F8] rounded-2xl relative p-8 flex flex-col justify-end overflow-hidden min-h-[160px]">
             <h3 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight z-20">3000<span className="font-thin">+</span></h3>
             <p className="text-gray-400 text-xs md:text-sm mt-1 font-light z-20">happy clients</p>
-            
             <LogoBlock className="right-8 top-4 scale-90 origin-top-right z-10" />
             <LogoBlock className="right-24 top-1/2 -translate-y-1/2 scale-75 opacity-70 origin-center z-10" />
             <LogoBlock className="right-4 bottom-4 scale-100 origin-bottom-right z-10" />
           </div>
-
-          {/* Rectangle 2 */}
           <div className="flex-1 rounded-2xl relative p-8 flex flex-col justify-end overflow-hidden min-h-[160px]">
             <div className="absolute inset-0 bg-gray-900/50 z-10 transition-colors hover:bg-gray-900/40 cursor-pointer"></div>
             <img 
@@ -33,18 +26,14 @@ export default function Statistics() {
               alt="Active Projects" 
               className="absolute inset-0 w-full h-full object-cover z-0" 
             />
-            
             <div className="relative z-20">
               <h3 className="text-4xl md:text-5xl font-light text-white tracking-tight">100<span className="font-thin">+</span></h3>
               <p className="text-white/80 text-xs md:text-sm mt-1 font-light">Active Projects</p>
             </div>
           </div>
-
-          {/* Rectangle 3 */}
           <div className="flex-1 bg-[#F8F8F8] rounded-2xl relative p-8 flex flex-col justify-end overflow-hidden min-h-[160px]">
             <h3 className="text-4xl md:text-5xl font-light text-gray-900 tracking-tight z-20">20<span className="font-thin">+</span></h3>
             <p className="text-gray-400 text-xs md:text-sm mt-1 font-light leading-snug z-20">Years<br/>Experience</p>
-
             <svg 
               className="absolute z-10" 
               style={{
@@ -72,9 +61,7 @@ export default function Statistics() {
               </defs>
             </svg>
           </div>
-
         </div>
-
       </div>
     </section>
   );

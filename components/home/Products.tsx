@@ -1,8 +1,6 @@
 "use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
 const productsData = [
   {
     id: "01",
@@ -49,18 +47,13 @@ const productsData = [
     ]
   }
 ];
-
 export default function Products() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const activeProduct = productsData[activeIndex];
-
   return (
     <section className="w-full bg-white py-24 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-[1400px] mx-auto w-full">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          
-          {/* Left Column */}
           <div className="w-full lg:w-5/12 flex flex-col justify-center">
             <div className="min-h-[200px]">
               <AnimatePresence mode="wait">
@@ -81,11 +74,9 @@ export default function Products() {
                 </motion.div>
               </AnimatePresence>
             </div>
-
             <div className="mb-4">
               <span className="text-gray-800 text-lg font-medium">{activeProduct.id}</span>
             </div>
-
             <div className="flex flex-col space-y-4">
               {productsData.map((product, index) => {
                 const isActive = index === activeIndex;
@@ -130,8 +121,6 @@ export default function Products() {
               })}
             </div>
           </div>
-
-          {/* Right Column */}
           <div className="w-full lg:w-7/12 flex items-center justify-center mt-12 lg:mt-40">
             <div className="bg-[#f4f4f4] rounded-md p-10 lg:p-14 w-full min-h-[420px] flex items-center">
               <AnimatePresence mode="wait">
@@ -157,7 +146,6 @@ export default function Products() {
               </AnimatePresence>
             </div>
           </div>
-
         </div>
       </div>
     </section>

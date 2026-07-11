@@ -1,15 +1,12 @@
 "use client";
-
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useState, MouseEvent } from "react";
-
 export type Reason = {
   id: number;
   text: string;
   col: string;
   image: string;
 };
-
 const ArrowIcon = ({ isRight }: { isRight?: boolean }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -29,23 +26,18 @@ const ArrowIcon = ({ isRight }: { isRight?: boolean }) => (
     <path d="m12 5 7 7-7 7" />
   </svg>
 );
-
 export default function FeatureCard({ reason, index }: { reason: Reason; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const isRight = reason.col === "right";
-
-  // Use a spring for smoother cursor following
   const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
   const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
-
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     x.set(e.clientX - rect.left);
     y.set(e.clientY - rect.top);
   };
-
   return (
     <motion.div
       initial="hidden"
@@ -73,8 +65,6 @@ export default function FeatureCard({ reason, index }: { reason: Reason; index: 
         <p className="text-gray-400 text-sm md:text-base leading-relaxed font-light relative z-10 overflow-hidden">
           {reason.text}
         </p>
-
-        {/* Cursor Following Polaroid */}
         <motion.div
           style={{
             x: springX,

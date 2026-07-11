@@ -1,6 +1,5 @@
 import MobileAppPreview from './MobileAppPreview';
 import DesktopAppPreview from './DesktopAppPreview';
-
 export default function AppShowCase() {
   return (
     <section className="w-full bg-white py-8 md:py-12 px-4 font-sans">

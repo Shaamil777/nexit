@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import FeatureCard, { Reason } from "./FeatureCard";
-
 const reasons: Reason[] = [
   {
     id: 1,
@@ -46,17 +45,12 @@ const reasons: Reason[] = [
     image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&q=80"
   },
 ];
-
 export default function WhyChooseUs() {
   const leftReasons = reasons.filter((r) => r.col === "left");
   const rightReasons = reasons.filter((r) => r.col === "right");
-
   return (
     <section className="w-full bg-[#0A0A0A] pt-24 md:pt-32 pb-32 md:pb-48 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
-      
-      {/* Background Decorative Elements */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        {/* Large Faded Text */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -65,12 +59,9 @@ export default function WhyChooseUs() {
         >
           INVACCS
         </motion.div>
-
-        {/* Glowing Orbs */}
         <div className="absolute top-0 left-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-cyan-900/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/4"></div>
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] translate-y-1/3 translate-x-1/4"></div>
       </div>
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -86,16 +77,12 @@ export default function WhyChooseUs() {
             </span>
           </h2>
         </motion.div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 max-w-5xl mx-auto">
-          {/* Left Column */}
           <div className="flex flex-col gap-6 md:gap-8 md:mt-16 lg:mt-24">
             {leftReasons.map((reason, index) => (
               <FeatureCard key={reason.id} reason={reason} index={index} />
             ))}
           </div>
-
-          {/* Right Column */}
           <div className="flex flex-col gap-6 md:gap-8">
             {rightReasons.map((reason, index) => (
               <FeatureCard key={reason.id} reason={reason} index={index} />
@@ -103,8 +90,6 @@ export default function WhyChooseUs() {
           </div>
         </div>
       </div>
-      
-      {/* Wave Transition */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[80px] md:h-[160px] block">
           <path fill="#ffffff" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,133.3C840,128,960,160,1080,170.7C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>

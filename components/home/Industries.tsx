@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
 const cardStyles = [
   { image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "ml-0 md:ml-[-300px]", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.4, delayCard: 0, hideText: false },
   { image: "https://images.unsplash.com/photo-1523413363574-c30aa1c2a516?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 0.5, delayCard: 0.1, hideText: false },
@@ -14,12 +13,10 @@ const cardStyles = [
   { image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "", delayText: 0, delayCard: 0.7, hideText: true },
   { image: "https://images.unsplash.com/photo-1576091160399-112ba3d25c1d?q=80&w=600&auto=format&fit=crop", w: "w-[150px] md:w-[180px]", h: "h-[210px] md:h-[240px]", ml: "", textClip: "polygon(0 0, calc(100% - 16px) 0, 100% 100%, 0 100%)", delayText: 1.2, delayCard: 0.8, hideText: false },
 ];
-
 export default function Industries() {
     const [cards, setCards] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-
     useEffect(() => {
         Promise.all([
             fetch('https://jsonplaceholder.typicode.com/posts?_limit=9').then(r => r.json())
@@ -38,26 +35,18 @@ export default function Industries() {
             setLoading(false);
         });
     }, []);
-
     return (
         <section className="w-full bg-white pt-4 md:pt-20 pb-28 md:pb-40 overflow-hidden relative">
-            {/* Wave Transition to WhyChooseUs */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-0 pointer-events-none">
                 <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[80px] md:h-[160px] block">
                     <path fill="#0A0A0A" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,133.3C840,128,960,160,1080,170.7C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
                 </svg>
             </div>
-
             <div className="max-w-7xl mx-auto w-full px-4 md:px-8 relative z-10">
-
-                {/* Top Section - Title and Paragraph */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start mb-8 md:mb-[-180px]">
-                    {/* Left Side - Title */}
                     <h2 className="text-4xl md:text-6xl font-light text-gray-900 leading-tight">
                         Industries We<br />Serve
                     </h2>
-
-                    {/* Right Side - Content */}
                     <div className="flex flex-col gap-8">
                         <div className="text-gray-500 text-base md:text-lg font-light space-y-1">
                             <p>
@@ -67,7 +56,6 @@ export default function Industries() {
                                 That&apos;s why our ERP systems are designed and customized individually for each sector — delivering precise functionality, real-time analytics, and seamless integration with your operations.
                             </p>
                         </div>
-
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#00A99D] w-5 h-5 shrink-0 mt-0.5"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
@@ -82,7 +70,6 @@ export default function Industries() {
                                 <span className="text-lg md:text-xl text-gray-600 font-light">Do sales and accounts always match?</span>
                             </li>
                         </ul>
-
                         <div>
                             <button className="bg-[#00A99D] hover:bg-[#008f85] text-white px-6 py-2.5 rounded text-base font-medium transition-colors shadow-sm">
                                 Learn more
@@ -91,11 +78,8 @@ export default function Industries() {
                     </div>
                 </div>
             </div>
-
-            {/* Bottom Section - Image Row */}
             <div className="w-full max-w-[1500px] mx-auto relative z-10 pt-10 overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none pb-6 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 <div className="flex items-end gap-4 md:gap-6 w-max px-4 md:px-0 md:pl-16 lg:pl-32">
-                    
                     {loading ? (
                         <div className="flex items-center justify-center w-full min-h-[240px] text-[#00A99D] font-medium animate-pulse">
                             Loading Industries...
@@ -136,11 +120,8 @@ export default function Industries() {
                             </motion.div>
                         ))
                     )}
-
                 </div>
             </div>
-
         </section>
     );
 }
-

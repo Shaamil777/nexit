@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 const SocialIcon = ({ type }: { type: string }) => {
   switch (type) {
     case "facebook":
@@ -41,13 +40,10 @@ const SocialIcon = ({ type }: { type: string }) => {
       return null;
   }
 };
-
 export default function Footer() {
   return (
     <footer className="w-full bg-gradient-to-r from-[#049E9F] to-[#1B1F1F] text-white pt-20 pb-8 mt-auto font-poppins">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Call to Action Section */}
         <div className="mb-24">
           <h2 className="text-4xl md:text-5xl font-light mb-4 leading-tight">
             Let's Build the Future of Your<br className="hidden md:block" />Business — Together.
@@ -59,14 +55,9 @@ export default function Footer() {
             Discover More
           </Link>
         </div>
-
-        {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
-          
-          {/* Logo & About (Takes up more space) */}
           <div className="md:col-span-5">
             <div className="flex items-center gap-2 mb-6">
-              {/* Logo SVG */}
               <div className="flex items-center">
                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
                     <circle cx="14" cy="20" r="10" stroke="white" strokeWidth="4" />
@@ -78,8 +69,6 @@ export default function Footer() {
             <p className="text-gray-300 font-light mb-8 max-w-md leading-relaxed text-sm">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
             </p>
-            
-            {/* Social Icons */}
             <div className="flex gap-3">
               {[
                 { type: "facebook", href: "#" },
@@ -94,8 +83,6 @@ export default function Footer() {
               ))}
             </div>
           </div>
-
-          {/* Quick Links */}
           <div className="md:col-span-3 md:col-start-7">
             <h3 className="text-base font-bold mb-6 tracking-wide">Quick Links</h3>
             <ul className="space-y-4">
@@ -108,8 +95,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
-          {/* Contacts */}
           <div className="md:col-span-3">
             <h3 className="text-base font-bold mb-6 tracking-wide">Contacts</h3>
             <ul className="space-y-4">
@@ -130,25 +115,19 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          
         </div>
-
-        {/* Bottom Bar */}
         <div className="pt-6 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-300 font-light">
           <p>© copyright 2020 by xxxx.com</p>
-          
           <div className="flex items-center gap-1">
             <span className="text-[10px]">Powered by</span>
             <span className="font-bold text-white text-sm tracking-wider">NEXIT</span>
           </div>
-          
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Content Privacy</Link>
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
-
       </div>
     </footer>
   );

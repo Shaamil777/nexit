@@ -1,25 +1,17 @@
 "use client";
-
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
-  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
-
-  // Title moves up and fades out
   const titleY = useTransform(scrollYProgress, [0, 1], ["0%", "-150%"]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.9], [1, 1]);
-  
-  // Laptop scales down and moves up to center
   const laptopScale = useTransform(scrollYProgress, [0, 1], [2.5, 1.2]);
   const laptopY = useTransform(scrollYProgress, [0, 1], ["80%", "-50%"]);
-
   return (
     <section
       ref={containerRef}
@@ -31,8 +23,6 @@ export default function Hero() {
           background: 'radial-gradient(circle at 0% 0%, #049E9F 0%, transparent 35%), radial-gradient(circle at 100% 0%, #049E9F 0%, transparent 35%), linear-gradient(to bottom, #049E9F 0%, transparent 40%), white'
         }}
       >
-        
-        {/* Title & Button Container */}
         <motion.div 
           style={{ y: titleY, x: "-50%", opacity: titleOpacity }}
           className="max-w-3xl w-full text-center space-y-4 absolute top-[22%] left-1/2 z-20 px-4"
@@ -49,8 +39,6 @@ export default function Hero() {
             </button>
           </div>
         </motion.div>
-
-        {/* Laptop Image Container */}
         <motion.div 
           style={{ 
             scale: laptopScale, 
@@ -75,7 +63,6 @@ export default function Hero() {
             non ligula suspendisse
           </p>
         </motion.div>
-
       </div>
     </section>
   );

@@ -1,10 +1,8 @@
 import Image from "next/image";
 import React from "react";
-
 export default function Insight() {
     return (
         <section className="w-full flex flex-col md:flex-row min-h-[600px]">
-            {/* Left Part - 50% with Grey Background */}
             <div className="w-full md:w-1/2 bg-gray-100 flex flex-col justify-center px-8 py-16 lg:px-16 xl:px-24">
                 <div className="max-w-[90%] md:max-w-[85%] lg:max-w-[75%] ml-6 md:ml-12 lg:ml-16 text-gray-500 text-base sm:text-lg leading-relaxed space-y-4">
                     <p>
@@ -18,14 +16,11 @@ export default function Insight() {
                     </p>
                 </div>
             </div>
-
-            {/* Right Part - 50% with White Background */}
             <div className="w-full md:w-1/2 bg-white relative flex z-10">
                 <div className="grid grid-cols-5 grid-rows-4 w-full md:-translate-x-[20%] h-full min-h-[400px] md:min-h-0">
                     {Array.from({ length: 20 }).map((_, i) => {
                         if (i === 1 || i === 5 || i === 6) return null;
                         if (i === 13 || i === 17 || i === 18) return null;
-
                         if (i === 0) {
                             return (
                                 <div 
@@ -41,7 +36,6 @@ export default function Insight() {
                                 </div>
                             );
                         }
-
                         if (i === 12) {
                             return (
                                 <div 
@@ -56,19 +50,16 @@ export default function Insight() {
                                             className="object-cover"
                                         />
                                     </div>
-                                    {/* 12th grid cell overlapping the image */}
                                     <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-white z-10 border border-white"></div>
                                 </div>
                             );
                         }
-
                         let bgClass = "bg-gray-100 hover:bg-gray-200";
                         if ([2, 4, 8, 14, 16, 19].includes(i)) {
                             bgClass = "bg-white";
                         } else if (i === 7 || i === 10) { // 7th and 10th grid items
                             bgClass = "bg-[#0CA7A5]";
                         }
-                        
                         return (
                             <div 
                                 key={i} 

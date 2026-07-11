@@ -1,13 +1,10 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-
 type FaqItem = {
   question: string;
   answer: string;
 };
-
 const defaultFaqs: FaqItem[] = [
   { question: "Loading...", answer: "Loading..." },
   { question: "Loading...", answer: "Loading..." },
@@ -16,11 +13,9 @@ const defaultFaqs: FaqItem[] = [
   { question: "Loading...", answer: "Loading..." },
   { question: "Loading...", answer: "Loading..." }
 ];
-
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [faqs, setFaqs] = useState<FaqItem[]>(defaultFaqs);
-
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts?_limit=6")
       .then((res) => res.json())
@@ -34,26 +29,19 @@ export default function FAQ() {
       })
       .catch((err) => console.error("Error fetching FAQs:", err));
   }, []);
-
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
   return (
     <section className="w-full bg-white relative overflow-hidden py-24 md:py-32 flex justify-center">
-      {/* Curved Background Arc */}
       <div 
         className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-[150vw] sm:w-[120vw] bg-[#0CA7A5] z-0 shadow-[0_20px_50px_rgba(12,167,165,0.15)]"
         style={{ borderRadius: '50% / 100px' }}
       >
-        {/* Subtle background decorations */}
         <div className="absolute top-1/4 right-[20%] w-96 h-96 bg-white opacity-5 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-1/4 left-[20%] w-96 h-96 bg-[#089593] opacity-20 rounded-full blur-[100px]"></div>
       </div>
-
       <div className="max-w-7xl mx-auto w-full text-white flex flex-col lg:flex-row gap-12 lg:gap-24 relative z-10 px-4 md:px-8">
-        
-        {/* Left Column */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
@@ -63,7 +51,6 @@ export default function FAQ() {
               Nulla tristique efficitur nisi, at scelerisque nisl iaculis id. Quisque aliquet, sem at scelerisque convallis, risus nisl tincidunt neque, vitae sodal
             </p>
           </div>
-          
           <div className="mt-12 bg-white/10 backdrop-blur-md shadow-xl rounded-2xl p-8 lg:p-10 max-w-sm">
             <h3 className="text-3xl md:text-4xl font-light mb-8 leading-snug">Still Have a<br/> question ?</h3>
             <button className="bg-white text-[#0CA7A5] px-8 py-3.5 rounded-xl font-semibold shadow-[0_8px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.2)] hover:bg-gray-50 transition-all duration-300 transform active:scale-95">
@@ -71,8 +58,6 @@ export default function FAQ() {
             </button>
           </div>
         </div>
-
-        {/* Right Column */}
         <div className="flex-[1.2] flex flex-col gap-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
@@ -96,8 +81,6 @@ export default function FAQ() {
                     )}
                   </div>
                 </div>
-                
-                {/* Answer container */}
                 <div 
                   className={`transition-all duration-300 ease-in-out ${
                     isOpen ? "max-h-64 opacity-100 pb-6 px-6" : "max-h-0 opacity-0 px-6"
@@ -112,7 +95,6 @@ export default function FAQ() {
             );
           })}
         </div>
-        
       </div>
     </section>
   );

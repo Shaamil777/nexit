@@ -1,26 +1,16 @@
 "use client";
-
 import { motion } from "framer-motion";
-
 export default function Experience() {
   return (
     <section className="w-full bg-white pb-16 overflow-hidden">
-      {/* Some space above the section as requested */}
       <div className="pt-12 md:pt-20 w-full relative">
-        
-        {/* The teal section with relative positioning for background elements */}
         <div className="w-full bg-[#0FA0A0] relative z-10 pb-16 md:pb-32">
-          
-          {/* Top Wave Transition */}
           <div className="absolute bottom-[99%] left-0 w-full overflow-hidden leading-[0]">
             <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[80px] md:h-[160px] block">
               <path fill="#0FA0A0" d="M0,128L60,144C120,160,240,192,360,186.7C480,181,600,139,720,133.3C840,128,960,160,1080,170.7C1200,181,1320,171,1380,165.3L1440,160L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
             </svg>
           </div>
-
-          {/* Background Decorative Elements */}
           <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            {/* Large Faded Text */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -29,16 +19,10 @@ export default function Experience() {
             >
               EXPERIENCE
             </motion.div>
-
-            {/* Glowing Orbs */}
             <div className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-white/[0.04] rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-900/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4"></div>
-
           </div>
-
-          {/* Main Content */}
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 pb-16 md:pt-48 md:pb-24 flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10">
-            {/* Left Image */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -57,8 +41,6 @@ export default function Experience() {
                 />
               </div>
             </motion.div>
-
-            {/* Right Content */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +60,6 @@ export default function Experience() {
                   <span className="font-light text-2xl md:text-3xl">of Excellence</span>
                 </div>
               </motion.div>
-
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -98,14 +79,11 @@ export default function Experience() {
               </motion.div>
             </motion.div>
           </div>
-          
-          {/* Bottom Wave Transition */}
           <div className="absolute top-[99%] left-0 w-full overflow-hidden leading-[0] rotate-180">
             <svg viewBox="0 0 1440 320" preserveAspectRatio="none" className="w-full h-[60px] md:h-[120px] block">
               <path fill="#0FA0A0" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
             </svg>
           </div>
-          
         </div>
       </div>
     </section>
